@@ -706,7 +706,7 @@ void weapon_grenadelauncher_fire (edict_t *ent)
 	VectorScale (forward, -2, ent->client->kick_origin);
 	ent->client->kick_angles[0] = -1;
 
-	fire_grenade (ent, start, forward, damage, 600, 2.5, radius);
+	fire_grenade (ent, start, forward, damage, 1000, 2.5, radius);
 
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);
@@ -920,7 +920,7 @@ void Weapon_HyperBlaster (edict_t *ent)
 	static int	pause_frames[]	= {0};
 	static int	fire_frames[]	= {6, 7, 8, 9, 10, 11, 0};
 
-	Weapon_Generic (ent, 5, 20, 49, 53, pause_frames, fire_frames, Weapon_HyperBlaster_Fire);
+	Weapon_Generic (ent, 5, 20, 49, 53, pause_frames, fire_frames, weapon_grenadelauncher_fire);
 }
 
 /*
